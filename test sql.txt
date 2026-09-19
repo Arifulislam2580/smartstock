@@ -1,0 +1,28 @@
+-- Sample data for SmartStock – Product Management System
+-- Admin user
+INSERT INTO tbl_admin (full_name, username, email, password, role) VALUES ('Administrator', 'admin', 'admin@smartstock.com.bd', '$2y$10$D.vCfQHdmZxcXyxIL91vz.I7OTP/37ne05gntawGl905ZoSxWEwqu', 'admin');
+
+-- Sample customers
+INSERT INTO customer_registration (customer_name, customer_email, customer_address, password) VALUES
+('John Doe', 'john@example.com', 'Dhaka, Bangladesh', '$2y$10$baIVib/fvyIUJmG0UazCwO7kHDOkJClrPOaA82cmBZes3h/KIYKRW');
+
+-- Sample categories
+INSERT INTO tbl_category (title, image_name, featured, active) VALUES
+('Electronics', '', 'Yes', 'Yes'),
+('Home & Kitchen', '', 'No', 'Yes'),
+('Grocery', '', 'No', 'Yes');
+
+-- Sample suppliers
+INSERT INTO tbl_supplier (name, contact_person, phone, email, address, active) VALUES
+('Global Importers', 'Rafiq Ahmed', '+8801712345678', 'rafiq@globalimporters.com', 'Dhaka, Bangladesh', 'Yes'),
+('Smart Wholesale', 'Mizan Khan', '+8801912345678', 'mizan@smartwholesale.com', 'Chattogram, Bangladesh', 'Yes');
+
+-- Sample products
+INSERT INTO tbl_product (title, description, price, original_price, stock_quantity, image_name, category_id, supplier_id, featured, active) VALUES
+('Imported LED Television', '32 inch imported LED television with HDMI ports.', 35000.00, 42000.00, 15, 'https://images.unsplash.com/photo-1517336714731-489689fd1ca8?auto=format&fit=crop&w=700&q=80', 1, 1, 'Yes', 'Yes'),
+('Kitchen Blender', 'High-speed blender for kitchen and home use.', 4500.00, 5200.00, 25, 'https://images.unsplash.com/photo-1517685352821-92cf88aee5a5?auto=format&fit=crop&w=700&q=80', 2, 2, 'No', 'Yes'),
+('Premium Rice Pack', '5kg premium rice pack for wholesale buyers.', 1600.00, 1800.00, 80, 'https://images.unsplash.com/photo-1601004890684-d8cbf643f5f2?auto=format&fit=crop&w=700&q=80', 3, 1, 'No', 'Yes');
+
+-- Sample order
+INSERT INTO tbl_order (product_id, customer_id, quantity, unit_price, total, status) VALUES
+(1, 1, 1, 35000.00, 35000.00, 'Pending');

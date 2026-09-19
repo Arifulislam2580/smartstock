@@ -1,0 +1,70 @@
+/* ====== CUSTOMER SIDE STYLES ====== */
+body {
+    font-family: Arial, sans-serif;
+    margin: 20px;
+    background: #f4f4f4;
+    color: #333;
+}
+
+h1, h2 {
+    color: #222;
+    text-align: center;
+}
+
+a {
+    color: #007bff;
+    text-decoration: none;
+    margin: 10px;
+    display: inline-block;
+}
+
+a:hover {
+    text-decoration: underline;
+}
+
+ul {
+    list-style: none;
+    padding: 0;
+}
+
+li {
+    background: #fff;
+    margin: 10px 0;
+    padding: 15px;
+    border-radius: 5px;
+    box-shadow: 0 1px 4px rgba(0,0,0,0.1);
+}
+
+form {
+    margin-top: 10px;
+}
+
+input[type="number"], 
+input[type="text"], 
+input[type="email"], 
+textarea {
+    padding: 6px;
+    width: 95%;
+    margin: 5px 0;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+}
+
+button {
+    background: #28a745;
+    color: white;
+    border: none;
+    padding: 8px 16px;
+    border-radius: 4px;
+    cursor: pointer;
+    margin-top: 8px;
+}
+
+button:hover {
+    background: #218838;
+}
+
+p[style*="color:green"] {
+    text-align: center;
+    font-weight: bold;
+}

@@ -1,0 +1,8 @@
+# Local secrets and environment configuration
+chatbotAPi.env
+.env
+.env.*
+
+# Local development files
+.vscode/
+*.log

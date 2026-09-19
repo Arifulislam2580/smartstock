@@ -1,0 +1,103 @@
+/* ====== ADMIN SIDE STYLES ====== */
+body {
+    font-family: 'Segoe UI', Arial, sans-serif;
+    background: #f8f9fa;
+    margin: 0;
+    padding: 0;
+}
+
+h2, h3 {
+    color: #333;
+    margin-top: 24px;
+    margin-bottom: 12px;
+    text-align: center;
+}
+
+a {
+    display: inline-block;
+    margin: 8px;
+    padding: 8px 16px;
+    background: #007bff;
+    color: #fff;
+    text-decoration: none;
+    border-radius: 4px;
+    transition: background 0.2s;
+}
+
+a:hover {
+    background: #0056b3;
+}
+
+/* Tables */
+table {
+    border-collapse: collapse;
+    width: 90%;
+    margin: 20px auto;
+    background: #fff;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.05);
+}
+
+th, td {
+    border: 1px solid #dee2e6;
+    padding: 10px 12px;
+    text-align: left;
+}
+
+th {
+    background: #f1f3f5;
+    font-weight: 600;
+}
+
+tr:nth-child(even) {
+    background: #f9f9f9;
+}
+
+/* Forms */
+form {
+    max-width: 400px;
+    margin: 40px auto;
+    padding: 24px;
+    background: #fff;
+    border-radius: 8px;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.07);
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+}
+
+label {
+    font-weight: 500;
+    margin-bottom: 4px;
+}
+
+input[type="text"], 
+input[type="password"], 
+input[type="email"], 
+textarea {
+    padding: 8px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    font-size: 15px;
+    width: 100%;
+}
+
+button[type="submit"] {
+    background: #28a745;
+    color: #fff;
+    border: none;
+    padding: 10px 0;
+    border-radius: 4px;
+    font-size: 16px;
+    cursor: pointer;
+    margin-top: 8px;
+    transition: background 0.2s;
+}
+
+button[type="submit"]:hover {
+    background: #218838;
+}
+
+p[style*="color:red"] {
+    text-align: center;
+    font-weight: 500;
+}

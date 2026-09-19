@@ -1,0 +1,105 @@
+-- ============================================================================
+-- SmartStock – Product Management System Database Schema
+-- Company: Laobaan Bangladesh LTD.
+-- ============================================================================
+
+CREATE DATABASE IF NOT EXISTS products_ordering_db;
+USE products_ordering_db;
+
+-- ============================================================================
+-- Category Management Table
+-- ============================================================================
+CREATE TABLE tbl_category (
+    id INT AUTO_INCREMENT PRIMARY KEY,
+    title VARCHAR(100) NOT NULL,
+    image_name VARCHAR(255),
+    featured VARCHAR(10),
+    active VARCHAR(10),
+    created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP
+);
+
+-- Products Table
+CREATE TABLE tbl_product (
+    product_id INT AUTO_INCREMENT PRIMARY KEY,
+    title VARCHAR(100) NOT NULL,
+    description TEXT,
+    price DECIMAL(10,2) NOT NULL,
+    original_price DECIMAL(10,2),
+    stock_quantity INT DEFAULT 0,
+    image_name VARCHAR(255),
+    category_id INT,
+    supplier_id INT,
+    featured VARCHAR(10),
+    active VARCHAR(10),
+    created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
+    updated_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP,
+    FOREIGN KEY (category_id) REFERENCES tbl_category(id) ON DELETE SET NULL
+);
+
+CREATE TABLE tbl_supplier (
+    id INT AUTO_INCREMENT PRIMARY KEY,
+    name VARCHAR(150) NOT NULL,
+    contact_person VARCHAR(150),
+    phone VARCHAR(30),
+    email VARCHAR(150),
+    address TEXT,
+    active VARCHAR(10) DEFAULT 'Yes',
+    created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP
+);
+
+-- Customers Registration Table
+CREATE TABLE customer_registration (
+    customer_id INT AUTO_INCREMENT PRIMARY KEY,
+    customer_name VARCHAR(150) NOT NULL,
+    company_name VARCHAR(150),
+    phone VARCHAR(20),
+    customer_email VARCHAR(150) UNIQUE NOT NULL,
+    customer_address VARCHAR(255),
+    city VARCHAR(100),
+    password VARCHAR(255) NOT NULL,
+    registration_date TIMESTAMP DEFAULT CURRENT_TIMESTAMP
+);
+
+-- Admin Table
+CREATE TABLE tbl_admin (
+    id INT AUTO_INCREMENT PRIMARY KEY,
+    full_name VARCHAR(100),
+    username VARCHAR(100) UNIQUE NOT NULL,
+    email VARCHAR(200) UNIQUE,
+    password VARCHAR(255) NOT NULL,
+    role VARCHAR(20) DEFAULT 'admin',
+    created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP
+);
+
+-- Orders Table
+CREATE TABLE tbl_order (
+    order_id INT AUTO_INCREMENT PRIMARY KEY,
+    product_id INT,
+    customer_id INT,
+    quantity INT NOT NULL,
+    unit_price DECIMAL(10,2),
+    total DECIMAL(10,2),
+    status VARCHAR(25) DEFAULT 'Pending',
+    order_date TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
+    FOREIGN KEY (product_id) REFERENCES tbl_product(product_id) ON DELETE SET NULL,
+    FOREIGN KEY (customer_id) REFERENCES customer_registration(customer_id) ON DELETE SET NULL
+);
+
+-- Contact Messages Table
+CREATE TABLE contact_messages (
+    id INT AUTO_INCREMENT PRIMARY KEY,
+    name VARCHAR(100),
+    email VARCHAR(150),
+    message TEXT,
+    submitted_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP
+);
+
+-- Customer Messages Table
+CREATE TABLE customers_sms (
+    id INT AUTO_INCREMENT PRIMARY KEY,
+    name VARCHAR(100),
+    email VARCHAR(100),
+    subject VARCHAR(150),
+    message TEXT,
+    created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP
+);
